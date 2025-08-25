@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLA Made Easy - Quick Reference</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #2980b9 0%, #8e44ad 100%);
+            min-height: 100vh;
+            padding: 15px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 25px;
+        }
+
+        .quick-nav {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 4px solid #2980b9;
+        }
+
+        .quick-nav h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .nav-link {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: 500;
+            transition: all 0.2s;
+            border: 1px solid #e9ecef;
+            text-align: center;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .section {
+            margin-bottom: 30px;
+            background: #f8f9fc;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #8e44ad;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .section h3 {
+            color: #8e44ad;
+            font-size: 1.2rem;
+            margin: 15px 0 10px 0;
+        }
+
+        .format-box {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+            margin: 15px 0;
+        }
+
+        .formula {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #2980b9;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            margin: 10px 0;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .example {
+            background: #f1f8e9;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #27ae60;
+            margin: 10px 0;
+        }
+
+        .example-title {
+            font-weight: bold;
+            color: #27ae60;
+            margin-bottom: 8px;
+        }
+
+        .code-block {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            border: 1px solid #ddd;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 15px 0;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table th {
+            background: #2980b9;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .comparison-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .mistake-box {
+            background: #fff5f5;
+            border-left: 4px solid #e74c3c;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+
+        .mistake-title {
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .tip-box {
+            background: #f0f8ff;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+
+        .tip-title {
+            color: #3498db;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .checklist {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+        }
+
+        .checklist ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .checklist li::before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            color: #2980b9;
+            font-size: 1.1rem;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #2980b9 0%, #8e44ad 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 10px;
+            border-radius: 5px;
+            backdrop-filter: blur(5px);
+        }
+
+        .print-btn {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin: 15px 0;
+            transition: background 0.2s;
+        }
+
+        .print-btn:hover {
+            background: #219a52;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 8px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .content {
+                padding: 15px;
+            }
+            
+            .section {
+                padding: 15px;
+            }
+            
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-grid, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .print-btn, .quick-nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>MLA Made Easy</h1>
+            <p>Quick Reference Guide | Anne Springs Close Library</p>
+        </div>
+
+        <div class="content">
+            <button class="print-btn" onclick="window.print()">Print This Guide</button>
+
+            <div class="quick-nav">
+                <h2>Quick Navigation</h2>
+                <div class="nav-grid">
+                    <a href="#format" class="nav-link">Paper Format</a>
+                    <a href="#intext" class="nav-link">In-Text Citations</a>
+                    <a href="#workscited" class="nav-link">Works Cited</a>
+                    <a href="#ice" class="nav-link">ICE Method</a>
+                    <a href="#mistakes" class="nav-link">Common Mistakes</a>
+                    <a href="#help" class="nav-link">Get Help</a>
+                </div>
+            </div>
+
+            <div class="section" id="format">
+                <h2>Paper Format Setup</h2>
+                
+                <div class="checklist">
+                    <h3>Essential Settings</h3>
+                    <ul>
+                        <li><strong>Font:</strong> Times New Roman, 12pt</li>
+                        <li><strong>Spacing:</strong> Double-space everything (no extra spaces)</li>
+                        <li><strong>Margins:</strong> 1 inch on all sides</li>
+                        <li><strong>Header:</strong> Last name + page number (top right)</li>
+                    </ul>
+                </div>
+
+                <div class="format-box">
+                    <h3>First Page Information (Top Left Corner)</h3>
+                    <div class="code-block">
+Your Name<br>
+Professor's Name<br>
+Course Name and Section<br>
+Date (Day Month Year)
+                    </div>
+                </div>
+
+                <div class="example">
+                    <div class="example-title">Date Format Examples:</div>
+                    <strong>Correct:</strong> 15 October 2024<br>
+                    <strong>Incorrect:</strong> October 15, 2024
+                </div>
+
+                <div class="tip-box">
+                    <div class="tip-title">Pro Tip:</div>
+                    Set up an MLA template in Word with these settings and save it for future use!
+                </div>
+            </div>
+
+            <div class="section" id="intext">
+                <h2>In-Text Citations</h2>
+                
+                <div class="formula">
+                    Basic Formula: (Author Page#)
+                </div>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Situation</th>
+                            <th>Format</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Basic citation</td>
+                            <td>(Author Page#)</td>
+                            <td>(Smith 45)</td>
+                        </tr>
+                        <tr>
+                            <td>Author mentioned in sentence</td>
+                            <td>(Page#)</td>
+                            <td>Smith argues that "..." (45)</td>
+                        </tr>
+                        <tr>
+                            <td>Website/No page numbers</td>
+                            <td>(Author)</td>
+                            <td>(Johnson)</td>
+                        </tr>
+                        <tr>
+                            <td>No author</td>
+                            <td>("Shortened Title")</td>
+                            <td>("Climate Report")</td>
+                        </tr>
+                        <tr>
+                            <td>Multiple authors</td>
+                            <td>(Author1 and Author2 Page#)</td>
+                            <td>(Smith and Jones 67)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="tip-box">
+                    <div class="tip-title">Remember:</div>
+                    If you mention the author's name in your sentence, only include the page number in parentheses.
+                </div>
+            </div>
+
+            <div class="section" id="workscited">
+                <h2>Works Cited Format</h2>
+                
+                <div class="formula">
+                    Author. "Title." Container, Date, Location.
+                </div>
+
+                <div class="format-box">
+                    <h3>Works Cited Page Setup</h3>
+                    <ul>
+                        <li><strong>Title:</strong> "Works Cited" (centered, no bold/italics)</li>
+                        <li><strong>Location:</strong> Last page of paper</li>
+                        <li><strong>Spacing:</strong> Double-spaced</li>
+                        <li><strong>Indent:</strong> Hanging indent for each entry</li>
+                        <li><strong>Order:</strong> Alphabetical by author's last name</li>
+                    </ul>
+                </div>
+
+                <h3>Common Source Types</h3>
+                
+                <div class="example">
+                    <div class="example-title">Book:</div>
+                    <div class="code-block">Morrison, Toni. Beloved. Vintage Books, 1987.</div>
+                </div>
+
+                <div class="example">
+                    <div class="example-title">Website Article:</div>
+                    <div class="code-block">Johnson, Maria. "Climate Change Solutions." Environmental News, 
+    15 Oct. 2024, www.envnews.com/solutions.</div>
+                </div>
+
+                <div class="example">
+                    <div class="example-title">Database Article:</div>
+                    <div class="code-block">Smith, John. "Student Success Strategies." Journal of Education, 
+    vol. 25, no. 3, 2024, pp. 45-67. Academic Search Complete.</div>
+                </div>
+
+                <div class="example">
+                    <div class="example-title">Newspaper Article:</div>
+                    <div class="code-block">Brown, Sarah. "Local Campus Changes." The Herald, 
+    12 Sept. 2024, pp. A1+.</div>
+                </div>
+            </div>
+
+            <div class="section" id="ice">
+                <h2>ICE Method for Quotes</h2>
+                
+                <p>Use this three-step method to integrate quotes effectively:</p>
+
+                <div class="two-column">
+                    <div class="tip-box">
+                        <div class="tip-title">I = Introduce</div>
+                        Who said it? What's their credibility? When/where?
+                    </div>
+                    <div class="tip-box">
+                        <div class="tip-title">C = Cite</div>
+                        The actual quote or paraphrase with proper MLA citation
+                    </div>
+                </div>
+                
+                <div class="tip-box">
+                    <div class="tip-title">E = Explain</div>
+                    Why does this matter? How does it support your argument?
+                </div>
+
+                <div class="example">
+                    <div class="example-title">Complete ICE Example:</div>
+                    <p><strong>Introduce:</strong> Leading education researcher Dr. Smith conducted a comprehensive study on student success strategies.</p>
+                    <p><strong>Cite:</strong> She found that "students who start research early score 23% higher on final papers" (Smith 78).</p>
+                    <p><strong>Explain:</strong> This demonstrates that time management directly impacts academic performance, supporting the need for early research planning.</p>
+                </div>
+            </div>
+
+            <div class="section" id="mistakes">
+                <h2>Common MLA Mistakes to Avoid</h2>
+
+                <div class="mistake-box">
+                    <div class="mistake-title">Wrong Date Format</div>
+                    <strong>Incorrect:</strong> October 15, 2024<br>
+                    <strong>Correct:</strong> 15 October 2024
+                </div>
+
+                <div class="mistake-box">
+                    <div class="mistake-title">Missing Hanging Indent</div>
+                    All Works Cited entries after the first line should be indented 0.5 inches
+                </div>
+
+                <div class="mistake-box">
+                    <div class="mistake-title">Inconsistent Spacing</div>
+                    Everything should be double-spaced - no extra spaces anywhere
+                </div>
+
+                <div class="mistake-box">
+                    <div class="mistake-title">Wrong Citation Placement</div>
+                    Citations go BEFORE the period: "Quote here" (Smith 45).
+                </div>
+
+                <div class="mistake-box">
+                    <div class="mistake-title">Mismatched Citations</div>
+                    Every in-text citation must have a matching Works Cited entry
+                </div>
+
+                <div class="tip-box">
+                    <div class="tip-title">Quick Fix:</div>
+                    Always double-check your citations against official MLA guidelines or ask a librarian for help!
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Helpful Tools</h2>
+
+                <div class="two-column">
+                    <div class="format-box">
+                        <h3>Citation Generators</h3>
+                        <ul>
+                            <li>Knight Cite</li>
+                            <li>Citation Machine</li>
+                            <li>Database "Cite" buttons</li>
+                            <li>EasyBib</li>
+                        </ul>
+                        <p><strong>Always double-check generated citations!</strong></p>
+                    </div>
+                    
+                    <div class="format-box">
+                        <h3>Reliable Resources</h3>
+                        <ul>
+                            <li>Purdue OWL MLA Guide</li>
+                            <li>York Tech Citation Guide</li>
+                            <li>MLA Handbook (9th Edition)</li>
+                            <li>Library research guides</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Success Strategies</h2>
+
+                <div class="checklist">
+                    <h3>Before You Write:</h3>
+                    <ul>
+                        <li>Set up MLA template in Word</li>
+                        <li>Keep source information organized</li>
+                        <li>Check instructor's specific requirements</li>
+                    </ul>
+                </div>
+
+                <div class="checklist">
+                    <h3>While You Write:</h3>
+                    <ul>
+                        <li>Add citations immediately - don't wait!</li>
+                        <li>Use the ICE method for quotes</li>
+                        <li>Keep a running Works Cited list</li>
+                    </ul>
+                </div>
+
+                <div class="checklist">
+                    <h3>Before You Submit:</h3>
+                    <ul>
+                        <li>Double-check date format</li>
+                        <li>Verify hanging indents in Works Cited</li>
+                        <li>Match all in-text citations to Works Cited entries</li>
+                        <li>Review spacing and formatting</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="contact-box" id="help">
+                <h2>Need Help? We're Here for You!</h2>
+                <p>Don't struggle with citations alone - our librarians are ready to help!</p>
+                
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <strong>Email</strong><br>
+                        library@yorktech.edu
+                    </div>
+                    <div class="contact-item">
+                        <strong>Phone</strong><br>
+                        (803) 327-8025
+                    </div>
+                    <div class="contact-item">
+                        <strong>Live Chat</strong><br>
+                        Library website
+                    </div>
+                    <div class="contact-item">
+                        <strong>Appointments</strong><br>
+                        Schedule through Navigate
+                    </div>
+                </div>
+                
+                <p style="margin-top: 15px; font-style: italic;">
+                    "Focus on accuracy over perfection - we're here to help you get it right!"
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add hover effects
+        document.querySelectorAll('.format-box, .example, .tip-box').forEach(box => {
+            box.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-1px)';
+                this.style.transition = 'transform 0.2s';
+            });
+            
+            box.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
